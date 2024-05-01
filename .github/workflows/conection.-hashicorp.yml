@@ -1,0 +1,40 @@
+name: Vault Access Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  access-vault:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Vault CLI
+        uses: hashicorp/setup-vault@v1
+        with:
+          vault-version: 1.7.5
+          
+      - name: Set up Vault token
+        env:
+          VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+        run: |
+          export VAULT_TOKEN=$VAULT_TOKEN
+          
+      - name: Access Vault
+        run: |
+          # Ejemplo: Obtener el estado del sistema de Vault
+          vault status
+          
+      - name: Verify Vault Connection
+        run: |
+          # Verificar si la conexión fue exitosa
+          if [ $? -eq 0 ]; then
+            echo "La conexión a Vault fue exitosa"
+          else
+            echo "Hubo un error al conectar con Vault"
+            exit 1
+          fi
