@@ -7,4 +7,4 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: tamashirorichie/ghactions-demos/.github/workflows/connectionrunner.yml@feature/python-cli
+    uses: tamashirorichie/workflows-ghacctions/.github/workflows/execpython.yml@prueba-python
