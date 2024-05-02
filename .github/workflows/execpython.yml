@@ -1,0 +1,19 @@
+name: Flujo de trabajo reutilizable
+
+on:
+ workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+    
+        - name: Setup Python
+          uses: actions/setup-python@v2
+          with:
+            python-version: '3.x'
+    
+        - name: Mensaje en python
+          run: |
+            print("Esto es una prueba")
