@@ -1,4 +1,4 @@
-name: Vault Access Workflow
+name: Execute python
 
 on:
   push:
