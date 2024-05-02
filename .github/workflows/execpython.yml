@@ -14,6 +14,6 @@ jobs:
           with:
             python-version: '3.x'
     
-        - name: Mensaje en python
-          run: |
-            print("Esto es una prueba")
+        - name: Ejecutar script de Python
+          run: python -c 'print("Esto es una prueba")'
+
